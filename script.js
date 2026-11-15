@@ -247,22 +247,26 @@ function renderProducts(productsToShow) {
         return;
     }
 
-    productsToShow.forEach(function (product) {
+    productsToShow.forEach(function (product, productIndex) {
         var sizeData = getSizeData(product, 0);
         var pricing = getFinalPrice(product, 0, discounts);
         var statusBadge = getStatusBadge(product.status);
         var discountBadge = pricing.hasDiscount ? '<span class="discount-badge">-' + pricing.discountPercent + '%</span>' : '';
         var soldOutClass = product.status === 'soldout' ? 'sold-out' : '';
+        var collectionCount = ('0' + productsToShow.length).slice(-2);
+        var collectionPosition = ('0' + (productIndex + 1)).slice(-2);
+        var displayClass = productIndex === 0 ? 'product-card--featured' : (productIndex % 4 === 3 ? 'product-card--wide' : '');
         var sizeSelector = product.sizes.length > 1
             ? '<div class="card-size-selector"><label for="sizeSelect-' + product.id + '">الحجم:</label><select id="sizeSelect-' + product.id + '" class="size-select" onclick="event.stopPropagation()" onchange="updateProductSize(\'' + product.id + '\', this.value)">' + product.sizes.map(function (size, idx) { return '<option value="' + idx + '">' + getSizeLabel(size) + '</option>'; }).join('') + '</select></div>'
             : '<div class="card-size-single"><span>الحجم:</span><strong>' + getSizeLabel(sizeData) + '</strong></div>';
 
         var card = document.createElement('div');
-        card.className = 'product-card ' + soldOutClass;
+        card.className = 'product-card ' + displayClass + ' ' + soldOutClass;
         card.dataset.productId = String(product.id);
         card.innerHTML = [
             discountBadge,
             statusBadge,
+            '<span class="product-index">' + collectionPosition + ' / ' + collectionCount + '</span>',
             '<div class="product-image" onclick="openPDP(\'' + product.id + '\')" style="cursor:pointer;">',
             '<img src="' + product.image + '" alt="' + product.name + '" loading="lazy" onerror="this.src=\'' + FALLBACK_IMAGE + '\'">',
             '</div>',
