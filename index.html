@@ -25,7 +25,7 @@
                 <span id="logoText" class="logo-text">ELO Premium</span>
             </a>
             <div class="nav-search">
-                <input type="text" id="navSearchInput" placeholder="ابحثي عن منتج..." autocomplete="off">
+                <input type="text" id="navSearchInput" placeholder="ابحث عن منتج..." autocomplete="off">
                 <div class="search-dropdown" id="navSearchDropdown"></div>
             </div>
             <ul class="nav-links">
@@ -33,7 +33,7 @@
                 <li></li>
                 <li><a href="#about">من نحن</a></li>
                 <li><a href="#delivery">التوصيل</a></li>
-                <li><a href="#contact">تواصلي معنا</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
                 <li><a href="#order-tracking">تتبّع الطلب</a></li>
             </ul>
             <div class="cart-icon" id="cartIcon" onclick="toggleCart()">
@@ -48,7 +48,7 @@
         <a href="#products" onclick="toggleMobileMenu()">المنتجات</a>
         <a href="#about" onclick="toggleMobileMenu()">من نحن</a>
         <a href="#delivery" onclick="toggleMobileMenu()">التوصيل</a>
-        <a href="#contact" onclick="toggleMobileMenu()">تواصلي معنا</a>
+        <a href="#contact" onclick="toggleMobileMenu()">تواصل معنا</a>
         <a href="#order-tracking" onclick="toggleMobileMenu()">تتبّع الطلب</a>
     </div>
 
@@ -63,7 +63,7 @@
                     <h1 id="heroTitle" style="display:none;">ELO Premium | إيلو بريميوم</h1>
                     <p class="hero-subtitle" id="heroSubtitle">ملابس أصلية بتصميم ELO</p>
                     <p class="hero-tagline">ستريت وير جريء، مصنوع ليترك بصمة</p>
-                    <a href="#products" class="btn-primary">تسوقي الآن</a>
+                    <a href="#products" class="btn-primary">تسوق الآن</a>
                 </div>
             </div>
         </div>
@@ -75,7 +75,7 @@
             <h2 class="section-title">منتجاتنا</h2>
             <p class="store-notice" id="storeNotice" style="display:none;"></p>
             <div class="products-search">
-                <input type="text" id="productsSearchInput" placeholder="ابحثي عن منتج، ماركة، أو فئة..." autocomplete="off">
+                <input type="text" id="productsSearchInput" placeholder="ابحث عن منتج، ماركة، أو فئة..." autocomplete="off">
                 <div class="search-dropdown" id="productsSearchDropdown"></div>
             </div>
             <div class="filter-toggle-bar">
@@ -101,7 +101,7 @@
         <div class="container products-shell">
             <div class="store-loading" id="storeLoading">
                 <div class="spinner"></div>
-                <p>جاري تحميل تشكيلتنا الفاخرة...</p>
+                <p>جاري تحميل تشكيلتنا...</p>
             </div>
             <div class="products-grid" id="productsGrid"></div>
         </div>
@@ -125,13 +125,6 @@
         </div>
     </section>
 
-    <section class="brands-section">
-        <div class="container">
-            <h2 class="section-title">ماركاتنا</h2>
-            <div class="brands-grid" id="brandsGrid"></div>
-        </div>
-    </section>
-
     <section id="delivery" class="delivery-section">
         <div class="container">
             <h2 class="section-title">🚚 مناطق التوصيل</h2>
@@ -145,7 +138,7 @@
 
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="section-title">📱 تواصلي معنا</h2>
+            <h2 class="section-title">📱 تواصل معنا</h2>
             <p class="section-subtitle">للطلب أو الاستفسار 💬</p>
             <div class="social-links">
                 <a href="https://wa.me/972569236758" class="social-btn whatsapp" target="_blank" id="whatsappLink"><span>📱 WhatsApp</span></a>
@@ -158,7 +151,7 @@
     <section id="order-tracking" class="order-tracking-section">
         <div class="container">
             <h2 class="section-title">🔎 تتبّع الطلب</h2>
-            <p class="section-subtitle">أدخلي رقم الطلب لعرض حالته الحالية وتفاصيله</p>
+            <p class="section-subtitle">أدخل رقم الطلب لعرض حالته الحالية وتفاصيله</p>
             <div class="order-tracking-card">
                 <div class="order-tracking-form">
                     <input type="text" id="orderTrackingInput" placeholder="مثال: ORD-123456" autocomplete="off">
@@ -191,7 +184,7 @@
                             <button onclick="changePDPQty(1)">+</button>
                         </div>
                     </div>
-                    <button class="btn-add-cart pdp-add-btn" id="pdpAddBtn" onclick="addFromPDP()">أضيفي للسلة</button>
+                    <button class="btn-add-cart pdp-add-btn" id="pdpAddBtn" onclick="addFromPDP()">أضف للسلة</button>
                 </div>
             </div>
             <div class="pdp-related" id="pdpRelated" style="display:none;">
@@ -222,6 +215,7 @@
     <footer class="footer">
         <div class="container">
             <p>© 2026 إيلو بريميوم. جميع الحقوق محفوظة</p>
+            <p class="creator-credit">تم إنشاء المتجر بواسطة <a href="https://www.instagram.com/ada_webdesigner/" target="_blank" rel="noopener noreferrer">ADA Web Designer</a></p>
         </div>
     </footer>
     <script src="firebase-config.js"></script>

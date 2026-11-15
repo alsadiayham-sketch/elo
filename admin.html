@@ -98,7 +98,7 @@
             <div class="tab-header">
                 <h3>إدارة الطلبات</h3>
                 <div class="orders-filters">
-                    <input type="text" id="orderSearchInput" placeholder="ابحثي بالاسم أو الهاتف" oninput="renderOrdersTable()">
+                    <input type="text" id="orderSearchInput" placeholder="ابحث بالاسم أو الهاتف" oninput="renderOrdersTable()">
                     <select id="orderStatusFilter" onchange="renderOrdersTable()">
                         <option value="all">كل الحالات</option>
                         <option value="new">جديد</option>
@@ -136,7 +136,7 @@
 
         <div class="tab-content" id="tab-hero">
             <div class="tab-header"><h3>إدارة واجهة المتجر (Hero)</h3></div>
-            <p style="color:#888;font-size:13px;margin-bottom:14px;line-height:1.9;">أضيفي صوراً أو فيديوهات تظهر في أعلى المتجر كشرائح متحركة. عند رفع فيديو من جهازك يتم تحويله تلقائياً إلى صورة متحركة (GIF) — حتى الفيديوهات الكبيرة. ويمكنك أيضاً لصق رابط مباشر لصورة أو فيديو.</p>
+            <p style="color:#888;font-size:13px;margin-bottom:14px;line-height:1.9;">أضف صوراً أو فيديوهات تظهر في أعلى المتجر كشرائح متحركة. عند رفع فيديو من جهازك يتم تحويله تلقائياً إلى صورة متحركة (GIF) — حتى الفيديوهات الكبيرة. ويمكنك أيضاً لصق رابط مباشر لصورة أو فيديو.</p>
             <form class="settings-form" onsubmit="event.preventDefault(); saveHeroSlide(event)">
                 <div class="form-row">
                     <div class="form-group"><label>رفع صورة أو فيديو</label><input type="file" id="heroFile" accept="image/*,video/*"></div>
@@ -157,7 +157,7 @@
             </div>
         <div class="tab-content" id="tab-users">
             <div class="tab-header"><h3>إدارة الموظفين</h3></div>
-            <p style="color:#888;font-size:13px;margin-bottom:14px;line-height:1.9;">أضيفي حسابات للموظفين بصلاحيات مختلفة. <strong>مدير</strong>: صلاحية كاملة. <strong>موظف الطلبات</strong>: يرى الطلبات فقط ويحدّث حالتها. كلمات المرور مشفّرة ومحفوظة على الخادم — لا يمكن لأحد قراءتها.</p>
+            <p style="color:#888;font-size:13px;margin-bottom:14px;line-height:1.9;">أضف حسابات للموظفين بصلاحيات مختلفة. <strong>مدير</strong>: صلاحية كاملة. <strong>موظف الطلبات</strong>: يرى الطلبات فقط ويحدّث حالتها. كلمات المرور مشفّرة ومحفوظة على الخادم — لا يمكن لأحد قراءتها.</p>
             <form class="settings-form" onsubmit="saveUser(event)">
                 <div class="form-row">
                     <div class="form-group"><label>اسم المستخدم</label><input type="text" id="userUsername" required></div>
@@ -212,7 +212,7 @@
             <form onsubmit="event.preventDefault(); saveDiscount(event)">
                 <input type="hidden" id="discountId">
                 <div class="form-group"><label>نوع الخصم</label><select id="discountType" onchange="toggleDiscountValueField()"><option value="all">على جميع المنتجات</option><option value="brand">حسب الماركة</option><option value="category">حسب الفئة</option><option value="manual">يدوي</option></select></div>
-                <div class="form-group" id="discountValueGroup" style="display:none;"><label>اختاري (يمكن اختيار أكثر من واحد)</label><div id="discountValueCheckboxes" class="checkbox-list"></div></div>
+                <div class="form-group" id="discountValueGroup" style="display:none;"><label>اختر (يمكن اختيار أكثر من واحد)</label><div id="discountValueCheckboxes" class="checkbox-list"></div></div>
                 <div class="form-group" id="discountManualGroup" style="display:none;"><label>عنوان يدوي</label><input type="text" id="discountManualValue" placeholder="مثال: خصم موسمي"></div>
                 <div class="form-group"><label>نسبة الخصم (%)</label><input type="number" id="discountPercentage" min="0" max="99" required></div>
                 <div class="form-group"><label>تاريخ الانتهاء (اختياري)</label><input type="date" id="discountExpiry"></div>

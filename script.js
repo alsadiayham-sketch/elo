@@ -275,7 +275,7 @@ function renderProducts(productsToShow) {
             '<div class="product-card-controls">' + sizeSelector + '</div>',
             '<div class="product-card-actions">',
             '<div class="qty-selector qty-sm" id="qty-' + product.id + '"><button onclick="event.stopPropagation(); changeCardQty(\'' + product.id + '\', -1)">−</button><span id="cardQty-' + product.id + '">1</span><button onclick="event.stopPropagation(); changeCardQty(\'' + product.id + '\', 1)">+</button></div>',
-            '<button class="btn-add-cart" onclick="addToCart(event, \'' + product.id + '\')" ' + (product.status === 'soldout' ? 'disabled' : '') + '>' + (product.status === 'soldout' ? 'نفذت الكمية' : 'أضيفي') + '</button>',
+            '<button class="btn-add-cart" onclick="addToCart(event, \'' + product.id + '\')" ' + (product.status === 'soldout' ? 'disabled' : '') + '>' + (product.status === 'soldout' ? 'نفذت الكمية' : 'أضف') + '</button>',
             '</div>'
         ].join('');
         grid.appendChild(card);
@@ -524,7 +524,7 @@ function resetPackagingBuilderForm() {
     var title = document.getElementById('packagingBuilderTitle');
     var submit = document.getElementById('packagingBuilderSubmit');
     if (title) title.textContent = 'صممي علبتك المخصصة';
-    if (submit) submit.textContent = 'أضيفي إلى السلة';
+    if (submit) submit.textContent = 'أضف إلى السلة';
     if (document.getElementById('packageWrapperColor')) document.getElementById('packageWrapperColor').value = 'gold';
     if (document.getElementById('packageNotes')) document.getElementById('packageNotes').value = '';
     if (document.getElementById('packageCustomerName')) document.getElementById('packageCustomerName').value = '';
@@ -717,7 +717,7 @@ function trackOrder() {
     if (!input || !result) return;
     var orderId = (input.value || '').trim();
     if (!orderId) {
-        result.innerHTML = '<div class="order-tracking-message error">أدخلي رقم الطلب أولاً.</div>';
+        result.innerHTML = '<div class="order-tracking-message error">أدخل رقم الطلب أولاً.</div>';
         return;
     }
     if (!window.db) {
@@ -777,7 +777,7 @@ function addToCart(event, productId) {
     btn.textContent = 'تمت الإضافة';
     btn.classList.add('added');
     setTimeout(function () {
-        btn.textContent = 'أضيفي';
+        btn.textContent = 'أضف';
         btn.classList.remove('added');
     }, 1500);
 
@@ -970,7 +970,7 @@ function renderHeroSlider(slides) {
             '<div class="hero-overlay"><div class="hero-content">' +
             (slide.title ? '<h2>' + slide.title + '</h2>' : '') +
             (slide.subtitle ? '<p>' + slide.subtitle + '</p>' : '') +
-            '<a href="#products" class="btn-primary">تسوقي الآن</a>' +
+            '<a href="#products" class="btn-primary">تسوق الآن</a>' +
             '</div></div></div>';
     }).join('');
     section.innerHTML = html;
@@ -1039,7 +1039,7 @@ function openPDP(productId) {
         addBtn.disabled = true;
         addBtn.style.background = '#9ca3af';
     } else {
-        addBtn.textContent = 'أضيفي للسلة';
+        addBtn.textContent = 'أضف للسلة';
         addBtn.disabled = false;
         addBtn.style.background = '';
     }
@@ -1137,7 +1137,7 @@ function addFromPDP() {
     btn.textContent = 'تمت الإضافة';
     btn.classList.add('added');
     setTimeout(function () {
-        btn.textContent = 'أضيفي للسلة';
+        btn.textContent = 'أضف للسلة';
         btn.classList.remove('added');
         closePDP();
     }, 1200);

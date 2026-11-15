@@ -465,7 +465,7 @@ async function saveProduct(event) {
     event.preventDefault();
     var id = document.getElementById('productId').value;
     var sizes = collectSizes();
-    if (!sizes.length) return alert('أضيفي حجماً واحداً على الأقل مع السعر.');
+    if (!sizes.length) return alert('أضف حجماً واحداً على الأقل مع السعر.');
 
     var nextId = id ? id : 'product_' + Date.now();
 
@@ -800,7 +800,7 @@ function renderTopProductsChart() {
 }
 
 async function seedData(force) {
-    var shouldForce = force || confirm('سيتم تعبئة فايرستور بالمنتجات الافتراضية إذا كان فارغاً. للكتابة فوق البيانات الحالية اختاري موافق.');
+    var shouldForce = force || confirm('سيتم تعبئة المتجر بالمنتجات الافتراضية إذا كان فارغاً. للكتابة فوق البيانات الحالية اختر موافق.');
     setAdminLoading(true);
     var result = await seedFirestoreData(shouldForce);
     setAdminLoading(false);
@@ -962,7 +962,7 @@ function renderHeroTable() {
     var body = document.getElementById('heroTableBody');
     if (!body) return;
     if (!heroSlides.length) {
-        body.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#999;padding:18px;">لا توجد صور واجهة بعد. أضيفي صورة أو فيديو ليظهر في أعلى المتجر.</td></tr>';
+        body.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#999;padding:18px;">لا توجد صور واجهة بعد. أضف صورة أو فيديو ليظهر في أعلى المتجر.</td></tr>';
         return;
     }
     body.innerHTML = heroSlides.map(function (slide) {
@@ -1000,7 +1000,7 @@ async function saveHeroSlide(event) {
         } else if (url) {
             if (/\.(mp4|webm|mov|ogg)(\?|$)/i.test(url)) type = 'video';
         } else {
-            alert('اختاري ملفاً من جهازك أو أدخلي رابطاً.');
+            alert('اختر ملفاً من جهازك أو أدخل رابطاً.');
             btn.disabled = false;
             return;
         }

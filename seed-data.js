@@ -49,7 +49,7 @@ window.seedFirestoreData = function (clearExisting) {
     var settings = {
         whatsappNumber: '972569236758',
         heroSubtitle: 'ملابس أصلية بتصميم ELO',
-        aboutText: 'ELO هي علامة ملابس مستقلة نصمم قطعها من الصفر لنمنحك ستايلاً واضحاً وشخصية لا تشبه أحداً.\nنختار الخامات بعناية ونبني كل مجموعة حول فكرة، لتلبسي القطعة بثقة كل يوم.',
+        aboutText: 'ELO هي علامة ملابس مستقلة نصمم قطعها من الصفر لنمنحك ستايلاً واضحاً وشخصية لا تشبه أحداً.\nنختار الخامات بعناية ونبني كل مجموعة حول فكرة، لتلبس القطعة بثقة كل يوم.',
         instagramLink: 'https://www.instagram.com/elo.premium11/',
         tiktokLink: ''
     };

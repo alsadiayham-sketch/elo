@@ -172,7 +172,7 @@
         function render() {
             var container = document.getElementById('checkoutContent');
             if (cart.length === 0) {
-                container.innerHTML = '<div class="empty-checkout"><span>•</span><p>السلة فارغة! أضيفي منتجات أولاً</p><a href="index.html">تسوقي الآن</a></div>';
+                container.innerHTML = '<div class="empty-checkout"><span>•</span><p>السلة فارغة! أضف منتجات أولاً</p><a href="index.html">تسوق الآن</a></div>';
                 return;
             }
 
@@ -204,12 +204,12 @@
             html += '<div class="checkout-card" style="margin-top:20px;">';
             html += '<h3>طريقة الاستلام</h3>';
             html += '<div class="delivery-options">';
-            html += '<div class="delivery-option ' + (selectedDelivery === 'pickup' ? 'selected' : '') + '" onclick="selectDelivery(\'pickup\')"><div class="radio-dot"></div><div class="delivery-option-info"><h4>استلام ذاتي (مجاني)</h4><p>استلمي طلبك بنفسك بدون تكلفة إضافية</p></div></div>';
+            html += '<div class="delivery-option ' + (selectedDelivery === 'pickup' ? 'selected' : '') + '" onclick="selectDelivery(\'pickup\')"><div class="radio-dot"></div><div class="delivery-option-info"><h4>استلام ذاتي (مجاني)</h4><p>استلم طلبك بنفسك بدون تكلفة إضافية</p></div></div>';
             html += '<div class="delivery-option ' + (selectedDelivery === 'delivery' ? 'selected' : '') + '" onclick="selectDelivery(\'delivery\')"><div class="radio-dot"></div><div class="delivery-option-info"><h4>توصيل للعنوان</h4><p>توصيل لجميع مناطق الضفة، القدس، والداخل</p></div></div>';
             html += '</div>';
             if (selectedDelivery === 'delivery') {
                 html += '<div class="delivery-regions" style="margin-top:15px;">';
-                html += '<h4 style="margin-bottom:10px; font-size:0.95rem;">اختاري المنطقة:</h4>';
+                html += '<h4 style="margin-bottom:10px; font-size:0.95rem;">اختر المنطقة:</h4>';
                 html += '<div class="region-options">';
                 html += '<div class="region-option ' + (selectedRegion === 'westbank' ? 'selected' : '') + '" onclick="selectRegion(\'westbank\')"><span>الضفة</span><span class="region-cost">₪20</span></div>';
                 html += '<div class="region-option ' + (selectedRegion === 'jerusalem' ? 'selected' : '') + '" onclick="selectRegion(\'jerusalem\')"><span>القدس</span><span class="region-cost">₪30</span></div>';
@@ -309,7 +309,7 @@
 
         function getDeliveryCostLabel() {
             if (selectedDelivery === 'pickup') return 'مجاني (استلام ذاتي)';
-            if (!selectedRegion) return 'اختاري المنطقة';
+            if (!selectedRegion) return 'اختر المنطقة';
             return formatCurrency(getDeliveryCost()) + ' (' + DELIVERY_LABELS[selectedRegion] + ')';
         }
 
