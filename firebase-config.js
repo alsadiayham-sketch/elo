@@ -5,8 +5,8 @@
 // the client — login is verified server-side.
 (function (global) {
     var API = '/api';
-    var TOKEN_KEY = '{{PROJECT_NAME}}_token';
-    var USER_KEY = '{{PROJECT_NAME}}_user';
+    var TOKEN_KEY = 'elo_token';
+    var USER_KEY = 'elo_user';
 
     // Firestore collection name -> API resource + JSON response key
     var RESOURCE = {
@@ -268,5 +268,5 @@
 
     global.db = db;
     global.storeAuth = storeAuth;
-    global.PROJECT_ID = '{{PROJECT_NAME}}';
+    global.PROJECT_ID = 'elo';
 })(window);

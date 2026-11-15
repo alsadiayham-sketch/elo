@@ -1,4 +1,4 @@
--- {{PROJECT_NAME}} secure backend — Cloudflare D1 schema
+-- elo secure backend — Cloudflare D1 schema
 -- All admin data lives here (server-only). The browser never reads this directly;
 -- it goes through authenticated Pages Functions at /api/*.
 

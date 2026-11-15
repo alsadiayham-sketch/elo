@@ -1,332 +1,82 @@
-// Seed data for {{STORE_NAME_EN}}
-// Run via: window.seedFirestoreData(true)  (while logged into the admin so the API token is set)
+// Seed data for ELO Premium
+// Run via: window.seedFirestoreData(true) while logged into the admin.
 
-window.seedFirestoreData = function(clearExisting) {
+window.seedFirestoreData = function (clearExisting) {
     var db = window.db;
-
+    var imageBase = 'https://images.unsplash.com/';
     var products = [
-        {
-            name: 'AXIS-Y Eye Serum',
-            brand: 'AXIS-Y',
-            category: 'عناية بالبشرة',
-            price: 90,
-            image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop',
-            description: 'سيروم AXIS-Y للعين بالكولاجين النباتي - يعالج الهالات والتجاعيد',
-            status: 'bestseller',
+        ['ELO Shadow Oversized Tee', 'ELO Originals', 'تيشيرتات', 149, 'photo-1521572163474-6864f9cf17ab', 'bestseller', 'تيشيرت واسع بقصة يومية وخامة قطنية ناعمة.'],
+        ['ELO Core Boxy Tee', 'ELO Essentials', 'تيشيرتات', 139, 'photo-1503341504253-dff4815485f1', 'special', 'قصة بوكسية عصرية بتفاصيل نظيفة تناسب كل إطلالة.'],
+        ['ELO Signature Hoodie', 'ELO Originals', 'هوديز', 249, 'photo-1556821840-3a63f95609a7', 'bestseller', 'هودي مريح بتصميم ELO المميز للأيام الباردة.'],
+        ['ELO Studio Zip Hoodie', 'ELO Studio', 'هوديز', 279, 'photo-1578681994506-b8f463449011', 'special', 'هودي بسحاب وقصة مرتبة للّوك الحضري.'],
+        ['ELO Relaxed Cargo', 'ELO Originals', 'بناطيل', 259, 'photo-1515886657613-9f3515b0c78f', 'bestseller', 'بنطال كارغو بقصة واسعة وجيوب عملية.'],
+        ['ELO Straight Denim', 'ELO Essentials', 'بناطيل', 239, 'photo-1542272604-787c3835535d', 'normal', 'جينز بقصة مستقيمة ودرجة لون سهلة التنسيق.'],
+        ['ELO Wide Leg Trousers', 'ELO Studio', 'بناطيل', 229, 'photo-1594633312681-425c7b97ccd1', 'special', 'بنطال واسع بانسيابية أنيقة ولمسة عصرية.'],
+        ['ELO Varsity Jacket', 'ELO Originals', 'جاكيتات', 329, 'photo-1551028719-00167b16eac5', 'bestseller', 'جاكيت مستوحى من الڤارسِتي بتفاصيل جريئة.'],
+        ['ELO Utility Overshirt', 'ELO Studio', 'جاكيتات', 289, 'photo-1591047139829-d91aecb6caea', 'normal', 'أوفرشيرت خفيف يكمّل إطلالتك في كل موسم.'],
+        ['ELO Cropped Puffer', 'ELO Originals', 'جاكيتات', 349, 'photo-1548883354-7622d03aca27', 'special', 'جاكيت مبطن بقصة قصيرة وحضور واضح.'],
+        ['ELO Ribbed Long Sleeve', 'ELO Essentials', 'توبات', 119, 'photo-1564257577054-0d8c6b7f1f7f', 'normal', 'قطعة أساسية مضلعة للطبقات والإطلالات اليومية.'],
+        ['ELO Contrast Baby Tee', 'ELO Studio', 'توبات', 129, 'photo-1485968579580-b6d095142e6e', 'special', 'تيشيرت بقصة قصيرة وتفاصيل كونتراست ناعمة.'],
+        ['ELO Everyday Sweatpants', 'ELO Essentials', 'بناطيل', 199, 'photo-1506629905607-d9c297d53a63', 'bestseller', 'بنطال سويت مريح للّوك الهادئ واليومي.'],
+        ['ELO Track Pants', 'ELO Originals', 'بناطيل', 219, 'photo-1552902865-b72c031ac5ea', 'normal', 'بنطال رياضي بخط جانبي يعطي الإطلالة طاقة.'],
+        ['ELO Layering Tank', 'ELO Essentials', 'توبات', 89, 'photo-1551488831-00ddcb6c6bd3', 'normal', 'توب خفيف وأساسي للارتداء تحت القطع أو وحده.'],
+        ['ELO Heavyweight Crewneck', 'ELO Originals', 'سويتشيرتات', 229, 'photo-1576566588028-4147f3842f27', 'bestseller', 'سويتشيرت ثقيل بملمس فاخر وقصة مريحة.'],
+        ['ELO Minimal Crewneck', 'ELO Studio', 'سويتشيرتات', 209, 'photo-1571945153237-4929e783af4a', 'normal', 'سويتشيرت نظيف بتفصيل بسيط وسهل التنسيق.'],
+        ['ELO Mesh Layer Top', 'ELO Studio', 'توبات', 139, 'photo-1566206091558-7f218b696731', 'special', 'طبقة شبكية خفيفة لإطلالة مختلفة وجريئة.'],
+        ['ELO Monogram Cap', 'ELO Originals', 'إكسسوارات', 99, 'photo-1521369909029-2afed882baee', 'bestseller', 'كاب مطرز بشعار ELO لإكمال اللوك.'],
+        ['ELO Canvas Tote', 'ELO Essentials', 'إكسسوارات', 109, 'photo-1544816155-12df9643f363', 'normal', 'شنطة كانفاس عملية بتصميم يومي أنيق.'],
+        ['ELO Ribbed Beanie', 'ELO Originals', 'إكسسوارات', 79, 'photo-1575428652377-a2d80e2277fc', 'normal', 'قبعة ريب دافئة بلمسة ستريت وير.'],
+        ['ELO Essential Socks', 'ELO Essentials', 'إكسسوارات', 49, 'photo-1586350977771-b3b0abd50c82', 'normal', 'جوارب قطنية مريحة بشعار ELO.']
+    ].map(function (item, index) {
+        return {
+            name: item[0],
+            brand: item[1],
+            category: item[2],
+            sizes: [
+                { size: 'S', unit: 'مقاس', price: item[3] },
+                { size: 'M', unit: 'مقاس', price: item[3] },
+                { size: 'L', unit: 'مقاس', price: item[3] },
+                { size: 'XL', unit: 'مقاس', price: item[3] }
+            ],
+            image: imageBase + item[4] + '?w=600&h=750&fit=crop',
+            description: item[6],
+            status: item[5],
             inStock: true,
-            order: 1
-        },
-        {
-            name: 'VT MILD REEDLE SHOT 50',
-            brand: 'VT Cosmetics',
-            category: 'عناية بالبشرة',
-            price: 100,
-            image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop',
-            description: 'أمبولة لطيفة بمكون Cicahyalon الحاصل على براءة اختراع لتجديد البشرة',
-            status: 'bestseller',
-            inStock: true,
-            order: 2
-        },
-        {
-            name: 'Beauty of Joseon Relief Sun',
-            brand: 'Beauty of Joseon',
-            category: 'واقي شمس',
-            price: 85,
-            image: 'https://images.unsplash.com/photo-1570194065650-d99fb4ee7cde?w=400&h=400&fit=crop',
-            description: 'واقي شمس بالأرز والبروبيوتيك - حماية يومية خفيفة على البشرة',
-            status: 'bestseller',
-            inStock: true,
-            order: 3
-        },
-        {
-            name: 'Neat Shower Gel',
-            brand: 'Neat',
-            category: 'العناية بالجسم',
-            price: 60,
-            image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=400&fit=crop',
-            description: 'شاور جل الانتعاش والعناية اليومية - تنظيف لطيف ورائحة منعشة',
-            status: '',
-            inStock: true,
-            order: 4
-        },
-        {
-            name: 'The Hoppa Dewy Glow Mist Serum',
-            brand: 'Hoppa',
-            category: 'عناية بالبشرة',
-            price: 75,
-            image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=400&fit=crop',
-            description: 'سيروم ميست للإشراقة الندية - ترطيب فوري وتوهج طبيعي',
-            status: 'special',
-            inStock: true,
-            order: 5
-        },
-        {
-            name: 'BioBalance Super Eye Cream',
-            brand: 'BioBalance',
-            category: 'عناية بالبشرة',
-            price: 100,
-            image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop',
-            description: 'كريم عين بالكولاجين وحمض الهيالورونيك وفيتامين سي',
-            status: '',
-            inStock: true,
-            order: 6
-        },
-        {
-            name: 'MINEADERM Advanced Recovery Cream',
-            brand: 'MINEADERM',
-            category: 'عناية بالبشرة',
-            price: 120,
-            image: 'https://images.unsplash.com/photo-1612817288484-6f916006741a?w=400&h=400&fit=crop',
-            description: 'كريم متقدم لاستعادة نضارة البشرة وترميمها',
-            status: 'special',
-            inStock: true,
-            order: 7
-        },
-        {
-            name: 'Maruderm Azaleic Acid 10% Serum',
-            brand: 'Maruderm',
-            category: 'عناية بالبشرة',
-            price: 65,
-            image: 'https://images.unsplash.com/photo-1617897903246-719242758050?w=400&h=400&fit=crop',
-            description: 'سيروم حمض الأزيلايك 10% لعلاج حب الشباب والتصبغات',
-            status: '',
-            inStock: true,
-            order: 8
-        },
-        {
-            name: 'I LOVE Face Masks Set',
-            brand: 'I LOVE',
-            category: 'العناية بالجسم',
-            price: 50,
-            image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=400&fit=crop',
-            description: 'مجموعة 4 أقنعة للوجه بتركيبات مغذية ومنعشة',
-            status: '',
-            inStock: true,
-            order: 9
-        },
-        {
-            name: 'I LOVE Body Mists Set',
-            brand: 'I LOVE',
-            category: 'العناية بالجسم',
-            price: 70,
-            image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400&h=400&fit=crop',
-            description: 'مجموعة 4 بخاخات عطرية للجسم بروائح فواكه منعشة',
-            status: 'bestseller',
-            inStock: true,
-            order: 10
-        },
-        {
-            name: 'I LOVE Bath Fizzers',
-            brand: 'I LOVE',
-            category: 'العناية بالجسم',
-            price: 55,
-            image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=400&fit=crop',
-            description: 'مجموعة 8 فوارات استحمام بروائح متنوعة',
-            status: '',
-            inStock: true,
-            order: 11
-        },
-        {
-            name: 'Weiss Deep Cleaning Teeth Wipes',
-            brand: 'Weiss',
-            category: 'عناية بالأسنان',
-            price: 35,
-            image: 'https://images.unsplash.com/photo-1559650656-5d1d361ad10e?w=400&h=400&fit=crop',
-            description: 'مناديل تنظيف عميق للأسنان - تبييض وإزالة البقع',
-            status: 'special',
-            inStock: true,
-            order: 12
-        },
-        {
-            name: 'SESDERMA C-VIT Serum',
-            brand: 'SESDERMA',
-            category: 'عناية بالبشرة',
-            price: 150,
-            image: 'https://images.unsplash.com/photo-1615396899839-c99c121888b0?w=400&h=400&fit=crop',
-            description: 'سيروم فيتامين سي المركز لإشراقة فورية ومحاربة التجاعيد',
-            status: 'special',
-            inStock: true,
-            order: 13
-        },
-        {
-            name: 'Neat Body Butter + Deodorant',
-            brand: 'Neat',
-            category: 'العناية بالجسم',
-            price: 110,
-            image: 'https://images.unsplash.com/photo-1601049676869-702ea24cfd58?w=400&h=400&fit=crop',
-            description: 'بكج زبدة الجسم ومزيل العرق الطبيعي من Neat',
-            status: 'bestseller',
-            inStock: true,
-            order: 14
-        },
-        {
-            name: 'Dr.Clinic Prebiotic Foam',
-            brand: 'Dr.Clinic',
-            category: 'عناية بالبشرة',
-            price: 35,
-            image: 'https://images.unsplash.com/photo-1556228841-a3c527ebefe5?w=400&h=400&fit=crop',
-            description: 'رغوة تنظيف بالبريبيوتيك لطيفة وفعالة لجميع أنواع البشرة',
-            status: '',
-            inStock: true,
-            order: 15
-        },
-        {
-            name: 'SESDERMA Azelac RU Serum',
-            brand: 'SESDERMA',
-            category: 'عناية بالبشرة',
-            price: 160,
-            image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&h=400&fit=crop',
-            description: 'سيروم لعلاج التصبغات وتوحيد لون البشرة',
-            status: '',
-            inStock: true,
-            order: 16
-        },
-        {
-            name: 'Laverne Shampoo',
-            brand: 'Laverne',
-            category: 'عناية بالشعر',
-            price: 45,
-            image: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=400&h=400&fit=crop',
-            description: 'شامبو لافيرن للعناية بالشعر التالف والمتقصف',
-            status: '',
-            inStock: true,
-            order: 17
-        },
-        {
-            name: 'بكج دلع الشاور',
-            brand: 'Neat',
-            category: 'العناية بالجسم',
-            price: 60,
-            image: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=400&fit=crop',
-            description: 'روتين استحمام ممتع وفاخر بقوام كريمي خفيف',
-            status: 'special',
-            inStock: true,
-            order: 18
-        },
-        {
-            name: 'Hoppa Vitamin C Serum',
-            brand: 'Hoppa',
-            category: 'عناية بالبشرة',
-            price: 80,
-            image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=400&fit=crop',
-            description: 'سيروم فيتامين سي من هوبا لتفتيح وتوحيد لون البشرة',
-            status: '',
-            inStock: true,
-            order: 19
-        },
-        {
-            name: 'I LOVE Fresh Slice Gift Set',
-            brand: 'I LOVE',
-            category: 'بكجات هدايا',
-            price: 85,
-            image: 'https://images.unsplash.com/photo-1583209814683-c023dd293cc6?w=400&h=400&fit=crop',
-            description: 'بكج هدية يحتوي على غسول ولوشن وفوّارة وربطة شعر',
-            status: '',
-            inStock: true,
-            order: 20
-        },
-        {
-            name: 'AXIS-Y Dark Spot Correcting Glow Serum',
-            brand: 'AXIS-Y',
-            category: 'عناية بالبشرة',
-            price: 95,
-            image: 'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=400&h=400&fit=crop',
-            description: 'سيروم تصحيح البقع الداكنة والإشراقة من AXIS-Y',
-            status: 'bestseller',
-            inStock: true,
-            order: 21
-        },
-        {
-            name: 'BioBalance Hyaluronic Acid Serum',
-            brand: 'BioBalance',
-            category: 'عناية بالبشرة',
-            price: 70,
-            image: 'https://images.unsplash.com/photo-1600428877878-1a0ff561571c?w=400&h=400&fit=crop',
-            description: 'سيروم حمض الهيالورونيك للترطيب العميق ومحاربة الجفاف',
-            status: '',
-            inStock: true,
-            order: 22
-        },
-        {
-            name: 'Weiss Whitening Toothpaste',
-            brand: 'Weiss',
-            category: 'عناية بالأسنان',
-            price: 40,
-            image: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=400&h=400&fit=crop',
-            description: 'معجون أسنان مبيض بتركيبة متقدمة لأسنان ناصعة البياض',
-            status: '',
-            inStock: true,
-            order: 23
-        },
-        {
-            name: 'MaruDerm SPF50 Sunscreen',
-            brand: 'Maruderm',
-            category: 'واقي شمس',
-            price: 55,
-            image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop',
-            description: 'واقي شمس SPF50 خفيف على البشرة بحماية عالية',
-            status: '',
-            inStock: true,
-            order: 24
-        },
-        {
-            name: 'Laverne Hair Mask',
-            brand: 'Laverne',
-            category: 'عناية بالشعر',
-            price: 50,
-            image: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=400&h=400&fit=crop',
-            description: 'ماسك شعر مغذي لاستعادة الحيوية واللمعان',
-            status: '',
-            inStock: true,
-            order: 25
-        }
-    ];
-
-    function runSeed() {
-        var batch = db.batch();
-        var productsRef = db.collection('products');
-        var settingsRef = db.collection('settings').doc('config');
-
-        var settings = {
-            whatsappNumber: '972569236758',
-            heroSubtitle: '{{HERO_SUBTITLE}}',
-            aboutText: '{{ABOUT_TEXT}}',
-            instagramLink: '{{INSTAGRAM_LINK}}',
-            tiktokLink: ''
+            order: index + 1
         };
+    });
 
-        if (clearExisting) {
-            console.log('Clearing existing data...');
-            return productsRef.get().then(function(snapshot) {
-                var deleteBatch = db.batch();
-                snapshot.forEach(function(doc) { deleteBatch.delete(doc.ref); });
-                return deleteBatch.commit();
-            }).then(function() {
-                var addBatch = db.batch();
-                products.forEach(function(product, index) {
-                    var docRef = productsRef.doc(String(index + 1));
-                    product.id = index + 1;
-                    product.sizes = [{ size: '-', unit: 'ml', price: product.price }];
-                    addBatch.set(docRef, product);
-                });
-                addBatch.set(settingsRef, settings);
-                return addBatch.commit();
-            }).then(function() {
-                console.log('Seeded ' + products.length + ' products successfully!');
-            });
-        }
+    var settings = {
+        whatsappNumber: '972569236758',
+        heroSubtitle: 'ملابس أصلية بتصميم ELO',
+        aboutText: 'ELO هي علامة ملابس مستقلة نصمم قطعها من الصفر لنمنحك ستايلاً واضحاً وشخصية لا تشبه أحداً.\nنختار الخامات بعناية ونبني كل مجموعة حول فكرة، لتلبسي القطعة بثقة كل يوم.',
+        instagramLink: 'https://www.instagram.com/elo.premium11/',
+        tiktokLink: ''
+    };
 
-        products.forEach(function(product, index) {
-            var docRef = productsRef.doc(String(index + 1));
+    var productsRef = db.collection('products');
+    var settingsRef = db.collection('settings').doc('config');
+    function writeProducts() {
+        var batch = db.batch();
+        products.forEach(function (product, index) {
             product.id = index + 1;
-            product.sizes = [{ size: '-', unit: 'ml', price: product.price }];
-            batch.set(docRef, product);
+            batch.set(productsRef.doc(String(index + 1)), product);
         });
         batch.set(settingsRef, settings);
-        return batch.commit().then(function() {
+        return batch.commit();
+    }
+
+    if (!clearExisting) {
+        return writeProducts().then(function () {
             console.log('Seeded ' + products.length + ' products successfully!');
         });
     }
 
-    return runSeed();
+    return productsRef.get().then(function (snapshot) {
+        var deleteBatch = db.batch();
+        snapshot.forEach(function (doc) { deleteBatch.delete(doc.ref); });
+        return deleteBatch.commit();
+    }).then(writeProducts).then(function () {
+        console.log('Seeded ' + products.length + ' products successfully!');
+    });
 };

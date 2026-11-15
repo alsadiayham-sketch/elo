@@ -1,16 +1,16 @@
-﻿var DEFAULT_PRODUCTS = [];
+var DEFAULT_PRODUCTS = [];
 
 var DEFAULT_DISCOUNTS = [];
 
 var DEFAULT_SITE_SETTINGS = {
     whatsappNumber: '972569236758',
-    heroSubtitle: '{{HERO_SUBTITLE}}',
-    aboutText: '{{ABOUT_TEXT}}',
-    instagramLink: '{{INSTAGRAM_LINK}}',
+    heroSubtitle: 'ملابس أصلية بتصميم ELO',
+    aboutText: 'ELO هي علامة ملابس مستقلة نصمم قطعها من الصفر لنمنحك ستايلاً واضحاً وشخصية لا تشبه أحداً.\nنختار الخامات بعناية ونبني كل مجموعة حول فكرة، لتلبسي القطعة بثقة كل يوم.',
+    instagramLink: 'https://www.instagram.com/elo.premium11/',
     tiktokLink: ''
 };
 
-var BRANDS_DATA = [{{BRANDS_DATA}}];
+var BRANDS_DATA = [{ name: 'ELO Originals', logo: 'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=120&h=120&fit=crop' }, { name: 'ELO Studio', logo: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=120&h=120&fit=crop' }, { name: 'ELO Essentials', logo: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=120&h=120&fit=crop' }];
 
 function normalizeSizeEntry(entry) {
     if (!entry) return { size: '-', unit: 'cm', price: 0 };

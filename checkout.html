@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{STORE_NAME_EN}} | إتمام الطلب</title>
+    <title>ELO Premium | إتمام الطلب</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -79,7 +79,7 @@
 <body>
     <nav class="navbar">
         <div class="container nav-container" style="justify-content: space-between;">
-            <a href="index.html" class="logo"><img src="logo.png" alt="{{STORE_NAME_EN}}" class="logo-img"><span class="logo-text" style="font-size:1rem;">{{STORE_NAME_EN}}</span></a>
+            <a href="index.html" class="logo"><img src="logo.png" alt="ELO Premium" class="logo-img"><span class="logo-text" style="font-size:1rem;">ELO Premium</span></a>
             <a href="index.html" style="color: var(--primary-dark); text-decoration: none; font-weight: 600; font-size: 0.95rem; white-space: nowrap; padding: 8px 20px; margin-left: 10px;">← الرئيسية</a>
         </div>
     </nav>
@@ -100,8 +100,8 @@
         var products = normalizeProducts(DEFAULT_PRODUCTS);
         var discounts = normalizeDiscounts(DEFAULT_DISCOUNTS);
         var siteSettings = normalizeSettings(DEFAULT_SITE_SETTINGS);
-        var cart = normalizeCartItems(JSON.parse(localStorage.getItem('{{PROJECT_NAME}}_cart') || '[]'), products);
-        var selectedDelivery = localStorage.getItem('{{PROJECT_NAME}}_delivery_method') || 'delivery';
+        var cart = normalizeCartItems(JSON.parse(localStorage.getItem('elo_cart') || '[]'), products);
+        var selectedDelivery = localStorage.getItem('elo_delivery_method') || 'delivery';
         var selectedRegion = '';
         var orderJustPlaced = false;
 
@@ -112,8 +112,8 @@
 
         function goToConfirmationIfDone() {
             if (!orderJustPlaced) return;
-            var lastOrder = localStorage.getItem('{{PROJECT_NAME}}_last_order');
-            var cartRaw = localStorage.getItem('{{PROJECT_NAME}}_cart') || '[]';
+            var lastOrder = localStorage.getItem('elo_last_order');
+            var cartRaw = localStorage.getItem('elo_cart') || '[]';
             var cartEmpty = cartRaw === '[]' || (JSON.parse(cartRaw) || []).length === 0;
             if (lastOrder && cartEmpty) window.location.href = 'confirmation.html';
         }
@@ -121,7 +121,7 @@
         window.addEventListener('pageshow', function (e) { if (e.persisted) goToConfirmationIfDone(); });
 
         function initializeCheckout() {
-            cart = normalizeCartItems(JSON.parse(localStorage.getItem('{{PROJECT_NAME}}_cart') || '[]'), products);
+            cart = normalizeCartItems(JSON.parse(localStorage.getItem('elo_cart') || '[]'), products);
             saveCart();
             render();
             setStatus('');
@@ -131,7 +131,7 @@
                     if (!snap.empty) {
                         products = snap.docs.map(function (docSnap) { var d = docSnap.data(); d.id = docSnap.id; return normalizeProduct(d); });
                     }
-                    cart = normalizeCartItems(JSON.parse(localStorage.getItem('{{PROJECT_NAME}}_cart') || '[]'), products);
+                    cart = normalizeCartItems(JSON.parse(localStorage.getItem('elo_cart') || '[]'), products);
                     saveCart();
                     render();
                 });
@@ -264,14 +264,14 @@
         }
 
         function saveCart() {
-            localStorage.setItem('{{PROJECT_NAME}}_cart', JSON.stringify(normalizeCartItems(cart, products)));
+            localStorage.setItem('elo_cart', JSON.stringify(normalizeCartItems(cart, products)));
         }
 
         function selectDelivery(method) {
             var formData = getFormValues();
             selectedDelivery = method;
             if (method === 'pickup') selectedRegion = '';
-            localStorage.setItem('{{PROJECT_NAME}}_delivery_method', method);
+            localStorage.setItem('elo_delivery_method', method);
             render();
             restoreFormValues(formData);
         }
@@ -464,8 +464,8 @@
             }
 
             db.collection('orders').doc(order.id).set(order).then(function () {
-                localStorage.setItem('{{PROJECT_NAME}}_last_order', JSON.stringify(order));
-                localStorage.setItem('{{PROJECT_NAME}}_cart', '[]');
+                localStorage.setItem('elo_last_order', JSON.stringify(order));
+                localStorage.setItem('elo_cart', '[]');
                 cart = [];
                 orderJustPlaced = true;
                 var whatsappUrl = buildWhatsAppUrl(siteSettings.whatsappNumber || '972569236758', buildWhatsAppMessage(order));

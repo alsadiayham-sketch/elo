@@ -1,4 +1,4 @@
-var FALLBACK_IMAGE = "{{FALLBACK_IMAGE}}";
+var FALLBACK_IMAGE = "data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 400 400%27%3E%3Crect width=%27400%27 height=%27400%27 fill=%27%23151119%27/%3E%3Ccircle cx=%27200%27 cy=%27170%27 r=%2780%27 fill=%27none%27 stroke=%23d9b36c stroke-width=%2710%27/%3E%3Cpath d=%27M130 285 Q200 235 270 285%27 fill=%27none%27 stroke=%23d9b36c stroke-width=%2710%27 stroke-linecap=%27round%27/%3E%3Ctext x=%27200%27 y=%27360%27 fill=%27%23f7efe3%27 font-family=%27Arial%27 font-size=%2732%27 text-anchor=%27middle%27 letter-spacing=%278%27%3EELO%3C/text%3E%3C/svg%3E";
 
 function hashString(str) {
     var encoder = new TextEncoder();

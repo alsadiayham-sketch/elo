@@ -1,11 +1,11 @@
-var FALLBACK_IMAGE = "{{FALLBACK_IMAGE}}";
+var FALLBACK_IMAGE = "data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 400 400%27%3E%3Crect width=%27400%27 height=%27400%27 fill=%27%23151119%27/%3E%3Ccircle cx=%27200%27 cy=%27170%27 r=%2780%27 fill=%27none%27 stroke=%23d9b36c stroke-width=%2710%27/%3E%3Cpath d=%27M130 285 Q200 235 270 285%27 fill=%27none%27 stroke=%23d9b36c stroke-width=%2710%27 stroke-linecap=%27round%27/%3E%3Ctext x=%27200%27 y=%27360%27 fill=%27%23f7efe3%27 font-family=%27Arial%27 font-size=%2732%27 text-anchor=%27middle%27 letter-spacing=%278%27%3EELO%3C/text%3E%3C/svg%3E";
 
 var products = [];
 var discounts = [];
 var siteSettings = normalizeSettings(DEFAULT_SITE_SETTINGS);
 var currentFilter = 'all';
-var cart = normalizeCartItems(JSON.parse(localStorage.getItem('{{PROJECT_NAME}}_cart') || '[]'), normalizeProducts(DEFAULT_PRODUCTS));
-var deliveryMethod = localStorage.getItem('{{PROJECT_NAME}}_delivery_method') || 'delivery';
+var cart = normalizeCartItems(JSON.parse(localStorage.getItem('elo_cart') || '[]'), normalizeProducts(DEFAULT_PRODUCTS));
+var deliveryMethod = localStorage.getItem('elo_delivery_method') || 'delivery';
 var currentPDPProduct = null;
 var currentPDPSizeIdx = 0;
 var pdpQty = 1;
@@ -938,12 +938,12 @@ function updateCheckoutLink(total) {
 }
 
 function saveCart() {
-    localStorage.setItem('{{PROJECT_NAME}}_cart', JSON.stringify(normalizeCartItems(cart, products.length ? products : normalizeProducts(DEFAULT_PRODUCTS))));
+    localStorage.setItem('elo_cart', JSON.stringify(normalizeCartItems(cart, products.length ? products : normalizeProducts(DEFAULT_PRODUCTS))));
 }
 
 function setDeliveryMethod(method) {
     deliveryMethod = method;
-    localStorage.setItem('{{PROJECT_NAME}}_delivery_method', method);
+    localStorage.setItem('elo_delivery_method', method);
     var pickupBtn = document.getElementById('optPickup');
     var deliveryBtn = document.getElementById('optDelivery');
     if (pickupBtn) pickupBtn.classList.toggle('active', method === 'pickup');
