@@ -5,4 +5,4 @@ compatibility_date = "2024-11-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "elo-db"
-database_id = "{{D1_DATABASE_ID}}"
+database_id = "7be47b7c-85d1-4151-ae08-c52493b69d20"
