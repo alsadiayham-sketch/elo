@@ -44,11 +44,11 @@ window.seedFirestoreData = function (clearExisting) {
             inStock: true,
             order: index + 1
         };
-    });
+    }).slice(0, 8);
 
     var settings = {
         whatsappNumber: '972569236758',
-        heroSubtitle: 'ملابس أصلية بتصميم ELO',
+        heroSubtitle: 'تصاميم أصلية، مصنوعة لتتفرّد',
         aboutText: 'ELO هي علامة ملابس مستقلة نصمم قطعها من الصفر لنمنحك ستايلاً واضحاً وشخصية لا تشبه أحداً.\nنختار الخامات بعناية ونبني كل مجموعة حول فكرة، لتلبس القطعة بثقة كل يوم.',
         instagramLink: 'https://www.instagram.com/elo.premium11/',
         tiktokLink: ''
