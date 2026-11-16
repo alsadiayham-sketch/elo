@@ -2743,14 +2743,23 @@ h1, h2, h3, .logo-text, .product-price, .section-title {
     height: 100svh;
 }
 
-.hero .hero-slide img {
+.hero .hero-slide > img {
     filter: saturate(.55) contrast(1.16) brightness(.78);
+}
+
+.hero .hero-slide .hero-logo-img {
+    width: 118px;
+    height: 118px;
+    min-height: 0;
+    object-fit: contain;
 }
 
 .hero-overlay {
     background:
         linear-gradient(180deg, rgba(23,16,19,.15), rgba(23,16,19,.2) 32%, rgba(23,16,19,.92) 100%),
         linear-gradient(90deg, rgba(23,16,19,.82), transparent 70%);
+    align-items: flex-end;
+    justify-content: flex-start;
 }
 
 .hero-content {
@@ -2758,6 +2767,7 @@ h1, h2, h3, .logo-text, .product-price, .section-title {
     max-width: 760px;
     padding: 48px 24px 80px;
     text-align: right;
+    margin-inline-start: 8%;
 }
 
 .hero-kicker {
@@ -2965,6 +2975,7 @@ h1, h2, h3, .logo-text, .product-price, .section-title {
 @media (max-width: 700px) {
     .hero-content {
         padding: 34px 22px 64px;
+        margin-inline-start: 0;
     }
 
     .hero-subtitle {
