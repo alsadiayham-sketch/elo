@@ -2187,7 +2187,287 @@ h1, h2, h3, .logo-text, .product-price, .section-title {
     }
 }
 
-/* ===== ELO Editorial Product Collection ===== */
+/* ===== ELO Atelier Collection ===== */
+:root {
+    --atelier-ink: #171013;
+    --atelier-wine: #2a171d;
+    --atelier-bone: #eee8df;
+    --atelier-stone: #c9bbae;
+    --atelier-gold: #c9a36a;
+    --atelier-line: rgba(238,232,223,.2);
+}
+
+body {
+    background: var(--atelier-ink);
+}
+
+h1, h2, h3, .logo-text, .product-price, .section-title {
+    font-family: 'Bodoni Moda', 'Marcellus', 'Tajawal', serif;
+}
+
+.hero {
+    min-height: 100svh;
+    background: var(--atelier-ink);
+}
+
+.hero .hero-slide img {
+    height: 100svh;
+    filter: saturate(.55) contrast(1.16) brightness(.78);
+}
+
+.hero-overlay {
+    background:
+        linear-gradient(180deg, rgba(23,16,19,.15), rgba(23,16,19,.18) 30%, rgba(23,16,19,.9) 100%),
+        linear-gradient(90deg, rgba(23,16,19,.82), transparent 70%);
+}
+
+.hero-content {
+    align-items: flex-start;
+    max-width: 760px;
+    padding: 48px 24px 80px;
+    text-align: right;
+}
+
+.hero-kicker {
+    margin-bottom: 30px;
+    color: var(--atelier-gold);
+    font-size: .68rem;
+    letter-spacing: .34em;
+}
+
+.hero-logo {
+    margin: 0 0 26px;
+}
+
+.hero-logo-img {
+    width: 118px;
+    height: 118px;
+    border-color: rgba(201,163,106,.8);
+    background: rgba(23,16,19,.58);
+}
+
+.hero-subtitle {
+    max-width: 9ch;
+    margin: 0 0 20px;
+    font-size: clamp(2.4rem, 6vw, 5.8rem);
+    line-height: 1.08;
+    letter-spacing: -.035em;
+    text-align: right;
+}
+
+.hero-tagline {
+    max-width: 34ch;
+    margin: 0 0 34px;
+    color: rgba(238,232,223,.72);
+    font-size: 1.05rem;
+    text-align: right;
+}
+
+.filter-section {
+    padding: clamp(90px, 12vw, 170px) 0 34px;
+    background: var(--atelier-ink);
+    color: var(--atelier-bone);
+}
+
+.collection-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 48px;
+    margin-bottom: 42px;
+    padding-bottom: 34px;
+    border-bottom: 1px solid var(--atelier-line);
+}
+
+.collection-kicker {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--atelier-gold);
+    font-size: .68rem;
+    letter-spacing: .28em;
+    direction: ltr;
+}
+
+.collection-heading .section-title {
+    margin: 0;
+    color: var(--atelier-bone);
+    font-size: clamp(2rem, 4vw, 4rem);
+    letter-spacing: -.035em;
+    text-align: right;
+}
+
+.collection-intro {
+    max-width: 28ch;
+    margin: 0 0 4px;
+    color: rgba(238,232,223,.62);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.products-section {
+    padding: 24px 0 150px;
+    background: var(--atelier-ink);
+}
+
+.products-shell {
+    max-width: 1320px;
+}
+
+.products-grid {
+    gap: 12px;
+}
+
+.product-card {
+    background: var(--atelier-wine);
+    color: var(--atelier-bone);
+    border: 1px solid transparent;
+    transition: transform 500ms cubic-bezier(.22,.61,.36,1), border-color 300ms ease, background-color 300ms ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(201,163,106,.58);
+    background: #351c24;
+}
+
+.product-card--featured {
+    background: var(--atelier-bone);
+    color: var(--atelier-ink);
+}
+
+.product-card--featured:hover {
+    background: #f5efe7;
+}
+
+.product-image {
+    background: #423239;
+}
+
+.product-card--featured .product-image {
+    background: #d3c4b8;
+}
+
+.product-image img {
+    filter: saturate(.7) contrast(1.08);
+}
+
+.product-card:hover .product-image img {
+    filter: saturate(.92) contrast(1.08);
+}
+
+.product-index {
+    top: 20px;
+    color: var(--atelier-gold);
+}
+
+.product-card:not(.product-card--featured) .product-brand {
+    color: var(--atelier-gold);
+}
+
+.product-card:not(.product-card--featured) .product-info h3 {
+    color: var(--atelier-bone);
+}
+
+.product-card:not(.product-card--featured) .product-meta {
+    color: rgba(238,232,223,.58);
+}
+
+.product-card:not(.product-card--featured) .product-price {
+    color: var(--atelier-bone);
+}
+
+.product-card:not(.product-card--featured) .card-size-selector,
+.product-card:not(.product-card--featured) .card-size-single {
+    border-color: var(--atelier-line);
+    color: rgba(238,232,223,.62);
+}
+
+.product-card:not(.product-card--featured) .size-select {
+    color: var(--atelier-bone);
+    background: transparent;
+}
+
+.product-card:not(.product-card--featured) .qty-selector {
+    border-color: rgba(238,232,223,.28);
+    background: transparent;
+}
+
+.product-card:not(.product-card--featured) .qty-selector button {
+    background: transparent;
+    color: var(--atelier-bone);
+}
+
+.product-card:not(.product-card--featured) .qty-selector span {
+    color: var(--atelier-bone);
+}
+
+.product-card:not(.product-card--featured) .product-card-actions .btn-add-cart {
+    color: var(--atelier-bone);
+    border-color: rgba(201,163,106,.52);
+}
+
+.product-card:not(.product-card--featured) .product-card-actions .btn-add-cart:hover {
+    background: var(--atelier-gold);
+    color: var(--atelier-ink);
+}
+
+.product-card--featured .product-info h3,
+.product-card--featured .product-price {
+    color: var(--atelier-ink);
+}
+
+.product-card--featured .product-meta {
+    color: rgba(23,16,19,.58);
+}
+
+.product-card--featured .card-size-selector,
+.product-card--featured .card-size-single {
+    border-color: rgba(23,16,19,.18);
+    color: rgba(23,16,19,.6);
+}
+
+.about-section,
+.delivery-section {
+    background: var(--atelier-wine);
+}
+
+.contact-section,
+.order-tracking-section {
+    background: var(--atelier-ink);
+    color: var(--atelier-bone);
+}
+
+.contact-section .section-title,
+.order-tracking-section .section-title {
+    color: var(--atelier-bone);
+}
+
+.footer {
+    border-top: 1px solid var(--atelier-line);
+}
+
+@media (max-width: 700px) {
+    .hero-content {
+        padding: 34px 22px 64px;
+    }
+
+    .hero-subtitle {
+        max-width: 11ch;
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+
+    .collection-heading {
+        display: block;
+        margin-bottom: 28px;
+        padding-bottom: 26px;
+    }
+
+    .collection-intro {
+        margin-top: 18px;
+    }
+}
+
+/* Preserve the collection grid mechanics below while changing its art direction. */
 .products-section {
     padding-top: 18px;
     background: #e9e2dc;
@@ -2445,5 +2725,260 @@ h1, h2, h3, .logo-text, .product-price, .section-title {
 
     .product-card--featured .product-card-actions {
         padding: 10px 24px 24px;
+    }
+}
+
+/* ===== Final Atelier Overrides ===== */
+body {
+    background: var(--atelier-ink);
+}
+
+h1, h2, h3, .logo-text, .product-price, .section-title {
+    font-family: 'Bodoni Moda', 'Marcellus', 'Tajawal', serif;
+}
+
+.hero,
+.hero .hero-slide img {
+    min-height: 100svh;
+    height: 100svh;
+}
+
+.hero .hero-slide img {
+    filter: saturate(.55) contrast(1.16) brightness(.78);
+}
+
+.hero-overlay {
+    background:
+        linear-gradient(180deg, rgba(23,16,19,.15), rgba(23,16,19,.2) 32%, rgba(23,16,19,.92) 100%),
+        linear-gradient(90deg, rgba(23,16,19,.82), transparent 70%);
+}
+
+.hero-content {
+    align-items: flex-start;
+    max-width: 760px;
+    padding: 48px 24px 80px;
+    text-align: right;
+}
+
+.hero-kicker {
+    margin-bottom: 30px;
+    color: var(--atelier-gold);
+    font-size: .68rem;
+    letter-spacing: .34em;
+}
+
+.hero-logo {
+    margin: 0 0 26px;
+}
+
+.hero-logo-img {
+    width: 118px;
+    height: 118px;
+    border-color: rgba(201,163,106,.8);
+    background: rgba(23,16,19,.58);
+}
+
+.hero-subtitle {
+    max-width: 9ch;
+    margin: 0 0 20px;
+    font-size: clamp(2.4rem, 6vw, 5.8rem);
+    line-height: 1.08;
+    letter-spacing: -.035em;
+    text-align: right;
+}
+
+.hero-tagline {
+    max-width: 34ch;
+    margin: 0 0 34px;
+    color: rgba(238,232,223,.72);
+    font-size: 1.05rem;
+    text-align: right;
+}
+
+.filter-section {
+    padding: clamp(90px, 12vw, 170px) 0 34px;
+    background: var(--atelier-ink);
+    color: var(--atelier-bone);
+}
+
+.collection-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 48px;
+    margin-bottom: 42px;
+    padding-bottom: 34px;
+    border-bottom: 1px solid var(--atelier-line);
+}
+
+.collection-kicker {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--atelier-gold);
+    font-size: .68rem;
+    letter-spacing: .28em;
+    direction: ltr;
+}
+
+.collection-heading .section-title {
+    margin: 0;
+    color: var(--atelier-bone);
+    font-size: clamp(2rem, 4vw, 4rem);
+    letter-spacing: -.035em;
+    text-align: right;
+}
+
+.collection-intro {
+    max-width: 28ch;
+    margin: 0 0 4px;
+    color: rgba(238,232,223,.62);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.products-section {
+    padding: 24px 0 150px;
+    background: var(--atelier-ink);
+}
+
+.product-card {
+    background: var(--atelier-wine);
+    color: var(--atelier-bone);
+    border: 1px solid transparent;
+    transition: transform 500ms cubic-bezier(.22,.61,.36,1), border-color 300ms ease, background-color 300ms ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(201,163,106,.58);
+    background: #351c24;
+    box-shadow: none;
+}
+
+.product-card--featured {
+    background: var(--atelier-bone);
+    color: var(--atelier-ink);
+}
+
+.product-card--featured:hover {
+    background: #f5efe7;
+}
+
+.product-image {
+    background: #423239;
+}
+
+.product-card--featured .product-image {
+    background: #d3c4b8;
+}
+
+.product-image img {
+    filter: saturate(.7) contrast(1.08);
+}
+
+.product-card:hover .product-image img {
+    filter: saturate(.92) contrast(1.08);
+}
+
+.product-card:not(.product-card--featured) .product-brand {
+    color: var(--atelier-gold);
+}
+
+.product-card:not(.product-card--featured) .product-info h3 {
+    color: var(--atelier-bone);
+}
+
+.product-card:not(.product-card--featured) .product-meta {
+    color: rgba(238,232,223,.58);
+}
+
+.product-card:not(.product-card--featured) .product-price {
+    color: var(--atelier-bone);
+}
+
+.product-card:not(.product-card--featured) .card-size-selector,
+.product-card:not(.product-card--featured) .card-size-single {
+    border-color: var(--atelier-line);
+    color: rgba(238,232,223,.62);
+}
+
+.product-card:not(.product-card--featured) .size-select {
+    color: var(--atelier-bone);
+    background: transparent;
+}
+
+.product-card:not(.product-card--featured) .qty-selector {
+    border-color: rgba(238,232,223,.28);
+    background: transparent;
+}
+
+.product-card:not(.product-card--featured) .qty-selector button {
+    background: transparent;
+    color: var(--atelier-bone);
+}
+
+.product-card:not(.product-card--featured) .qty-selector span {
+    color: var(--atelier-bone);
+}
+
+.product-card:not(.product-card--featured) .product-card-actions .btn-add-cart {
+    color: var(--atelier-bone);
+    border-color: rgba(201,163,106,.52);
+}
+
+.product-card:not(.product-card--featured) .product-card-actions .btn-add-cart:hover {
+    background: var(--atelier-gold);
+    color: var(--atelier-ink);
+}
+
+.product-card--featured .product-info h3,
+.product-card--featured .product-price {
+    color: var(--atelier-ink);
+}
+
+.product-card--featured .product-meta {
+    color: rgba(23,16,19,.58);
+}
+
+.product-card--featured .card-size-selector,
+.product-card--featured .card-size-single {
+    border-color: rgba(23,16,19,.18);
+    color: rgba(23,16,19,.6);
+}
+
+.about-section,
+.delivery-section {
+    background: var(--atelier-wine);
+}
+
+.contact-section,
+.order-tracking-section {
+    background: var(--atelier-ink);
+    color: var(--atelier-bone);
+}
+
+.contact-section .section-title,
+.order-tracking-section .section-title {
+    color: var(--atelier-bone);
+}
+
+@media (max-width: 700px) {
+    .hero-content {
+        padding: 34px 22px 64px;
+    }
+
+    .hero-subtitle {
+        max-width: 11ch;
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+
+    .collection-heading {
+        display: block;
+        margin-bottom: 28px;
+        padding-bottom: 26px;
+    }
+
+    .collection-intro {
+        margin-top: 18px;
     }
 }
