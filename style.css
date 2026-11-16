@@ -2467,6 +2467,96 @@ h1, h2, h3, .logo-text, .product-price, .section-title {
     }
 }
 
+/* ===== Product Stories: Last Cascade ===== */
+.products-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 18px;
+    max-width: 1180px;
+}
+
+.product-card.product-story {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr) !important;
+    grid-template-rows: minmax(0, 1fr) auto auto;
+    width: 100% !important;
+    min-height: 570px;
+}
+
+.product-card.product-story--reverse {
+    grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr) !important;
+}
+
+.product-story-image {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    min-height: 570px;
+    height: 100%;
+}
+
+.product-story--reverse .product-story-image {
+    grid-column: 2;
+}
+
+.product-story-content,
+.product-story .product-card-controls,
+.product-story .product-card-actions {
+    grid-column: 2;
+}
+
+.product-story--reverse .product-story-content,
+.product-story--reverse .product-card-controls,
+.product-story--reverse .product-card-actions {
+    grid-column: 1;
+}
+
+.product-story-content { grid-row: 1; }
+.product-story .product-card-controls { grid-row: 2; }
+.product-story .product-card-actions { grid-row: 3; }
+
+.product-card--featured {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, .5fr) !important;
+    min-height: 680px !important;
+}
+
+.product-card--featured .product-story-image {
+    min-height: 680px;
+}
+
+@media (max-width: 760px) {
+    .product-card.product-story,
+    .product-card.product-story--reverse,
+    .product-card--featured {
+        display: flex !important;
+        flex-direction: column !important;
+        min-height: 0 !important;
+    }
+
+    .product-story-image,
+    .product-card--featured .product-story-image {
+        width: 100%;
+        height: min(118vw, 500px);
+        min-height: 0;
+        order: 0;
+    }
+
+    .product-story-content,
+    .product-card--featured .product-story-content {
+        order: 1;
+    }
+
+    .product-story .product-card-controls,
+    .product-card--featured .product-card-controls {
+        order: 2;
+    }
+
+    .product-story .product-card-actions,
+    .product-card--featured .product-card-actions {
+        order: 3;
+    }
+}
+
 /* ===== Lookbook Layout Final Cascade ===== */
 .products-grid {
     display: flex;
@@ -3305,5 +3395,95 @@ h1, h2, h3, .logo-text, .product-price, .section-title {
 
     .collection-intro {
         margin-top: 18px;
+    }
+}
+
+/* ===== Product Stories: Last Cascade ===== */
+.products-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 18px;
+    max-width: 1180px;
+}
+
+.product-card.product-story {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr) !important;
+    grid-template-rows: minmax(0, 1fr) auto auto;
+    width: 100% !important;
+    min-height: 570px;
+}
+
+.product-card.product-story--reverse {
+    grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr) !important;
+}
+
+.product-story-image {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    min-height: 570px;
+    height: 100%;
+}
+
+.product-story--reverse .product-story-image {
+    grid-column: 2;
+}
+
+.product-story-content,
+.product-story .product-card-controls,
+.product-story .product-card-actions {
+    grid-column: 2;
+}
+
+.product-story--reverse .product-story-content,
+.product-story--reverse .product-card-controls,
+.product-story--reverse .product-card-actions {
+    grid-column: 1;
+}
+
+.product-story-content { grid-row: 1; }
+.product-story .product-card-controls { grid-row: 2; }
+.product-story .product-card-actions { grid-row: 3; }
+
+.product-card--featured {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, .5fr) !important;
+    min-height: 680px !important;
+}
+
+.product-card--featured .product-story-image {
+    min-height: 680px;
+}
+
+@media (max-width: 760px) {
+    .product-card.product-story,
+    .product-card.product-story--reverse,
+    .product-card--featured {
+        display: flex !important;
+        flex-direction: column !important;
+        min-height: 0 !important;
+    }
+
+    .product-story-image,
+    .product-card--featured .product-story-image {
+        width: 100%;
+        height: min(118vw, 500px);
+        min-height: 0;
+        order: 0;
+    }
+
+    .product-story-content,
+    .product-card--featured .product-story-content {
+        order: 1;
+    }
+
+    .product-story .product-card-controls,
+    .product-card--featured .product-card-controls {
+        order: 2;
+    }
+
+    .product-story .product-card-actions,
+    .product-card--featured .product-card-actions {
+        order: 3;
     }
 }
