@@ -255,24 +255,26 @@ function renderProducts(productsToShow) {
         var soldOutClass = product.status === 'soldout' ? 'sold-out' : '';
         var collectionCount = ('0' + productsToShow.length).slice(-2);
         var collectionPosition = ('0' + (productIndex + 1)).slice(-2);
-        var displayClass = productIndex === 0 ? 'product-card--featured' : (productIndex % 4 === 3 ? 'product-card--wide' : '');
+        var displayClass = productIndex === 0 ? 'product-card--featured' : (productIndex % 2 === 0 ? 'product-story--reverse' : '');
         var sizeSelector = product.sizes.length > 1
             ? '<div class="card-size-selector"><label for="sizeSelect-' + product.id + '">الحجم:</label><select id="sizeSelect-' + product.id + '" class="size-select" onclick="event.stopPropagation()" onchange="updateProductSize(\'' + product.id + '\', this.value)">' + product.sizes.map(function (size, idx) { return '<option value="' + idx + '">' + getSizeLabel(size) + '</option>'; }).join('') + '</select></div>'
             : '<div class="card-size-single"><span>الحجم:</span><strong>' + getSizeLabel(sizeData) + '</strong></div>';
 
         var card = document.createElement('div');
-        card.className = 'product-card ' + displayClass + ' ' + soldOutClass;
+        card.className = 'product-card product-story ' + displayClass + ' ' + soldOutClass;
         card.dataset.productId = String(product.id);
         card.innerHTML = [
             discountBadge,
             statusBadge,
             '<span class="product-index">' + collectionPosition + ' / ' + collectionCount + '</span>',
-            '<div class="product-image" onclick="openPDP(\'' + product.id + '\')" style="cursor:pointer;">',
+            '<div class="product-image product-story-image" onclick="openPDP(\'' + product.id + '\')" style="cursor:pointer;">',
             '<img src="' + product.image + '" alt="' + product.name + '" loading="lazy" onerror="this.src=\'' + FALLBACK_IMAGE + '\'">',
+            '<span class="product-image-note">' + product.category + '</span>',
             '</div>',
-            '<div class="product-info" onclick="openPDP(\'' + product.id + '\')" style="cursor:pointer;">',
+            '<div class="product-info product-story-content" onclick="openPDP(\'' + product.id + '\')" style="cursor:pointer;">',
             '<span class="product-brand">' + product.brand + '</span>',
             '<h3>' + product.name + '</h3>',
+            '<p class="product-description">' + product.description + '</p>',
             '<div class="product-meta"><span>' + product.category + '</span><span class="product-size" id="productSize-' + product.id + '">' + getSizeLabel(sizeData) + '</span></div>',
             '<div class="product-price" id="productPrice-' + product.id + '">' + getPriceHTML(pricing) + '</div>',
             '</div>',
